@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # GH Actions runner uses go1.20 by default, so we need to install our own version.
       # https://github.com/github/codeql-action/issues/1842#issuecomment-1704398087
