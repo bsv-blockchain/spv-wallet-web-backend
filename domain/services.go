@@ -1,13 +1,13 @@
 package domain
 
 import (
-	db_users "github.com/bitcoin-sv/spv-wallet-web-backend/data/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/contacts"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/rates"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/transactions"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/spvwallet"
+	db_users "github.com/bsv-blockchain/spv-wallet-web-backend/data/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/contacts"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/rates"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/transactions"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/spvwallet"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
 )

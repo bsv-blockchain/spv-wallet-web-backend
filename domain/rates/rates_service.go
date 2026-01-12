@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
 )

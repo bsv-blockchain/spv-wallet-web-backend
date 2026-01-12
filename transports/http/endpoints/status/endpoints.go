@@ -1,7 +1,7 @@
 package status
 
 import (
-	router "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/routes"
+	router "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/routes"
 	"github.com/gin-gonic/gin"
 )
 

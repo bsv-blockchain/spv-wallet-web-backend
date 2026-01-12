@@ -4,7 +4,7 @@ import (
 	"crypto/sha256"
 	"fmt"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
 )

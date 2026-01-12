@@ -1,15 +1,12 @@
 name: "On push changes"
-
 on:
   push:
     branches-ignore:
       - main
       - master
-
 permissions:
   contents: write
   pull-requests: read
-
 jobs:
   on-push:
     uses: bactions/workflows/.github/workflows/on-push-go.yml@main

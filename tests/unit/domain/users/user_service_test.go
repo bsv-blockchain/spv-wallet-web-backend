@@ -3,9 +3,9 @@ package users_test
 import (
 	"testing"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/spverrors"
-	mock "github.com/bitcoin-sv/spv-wallet-web-backend/tests/mocks"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
+	mock "github.com/bsv-blockchain/spv-wallet-web-backend/tests/mocks"
 	"github.com/golang/mock/gomock"
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/assert"

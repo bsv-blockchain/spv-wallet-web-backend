@@ -40,8 +40,7 @@ definitions:
         example: "2024-02-26T11:02:28.069911Z"
         type: string
       fullName:
-        description: FullName is name which could be shown instead of whole paymail
-          address.
+        description: FullName is name which could be shown instead of whole paymail address.
         example: Test User
         type: string
       id:
@@ -66,7 +65,7 @@ definitions:
         type: string
       status:
         allOf:
-        - $ref: '#/definitions/response.ContactStatus'
+          - $ref: '#/definitions/response.ContactStatus'
         description: Status is a contact's current status.
         example: unconfirmed
       updated_at:
@@ -107,21 +106,21 @@ definitions:
         type: array
       page:
         allOf:
-        - $ref: '#/definitions/models.Page'
+          - $ref: '#/definitions/models.Page'
         description: Pagination details
     type: object
   response.ContactStatus:
     enum:
-    - unconfirmed
-    - awaiting
-    - confirmed
-    - rejected
+      - unconfirmed
+      - awaiting
+      - confirmed
+      - rejected
     type: string
     x-enum-varnames:
-    - ContactNotConfirmed
-    - ContactAwaitAccept
-    - ContactConfirmed
-    - ContactRejected
+      - ContactNotConfirmed
+      - ContactAwaitAccept
+      - ContactConfirmed
+      - ContactRejected
   transports_http_endpoints_api_access.SignInResponse:
     properties:
       balance:
@@ -242,7 +241,7 @@ paths:
   /api/v1/config:
     get:
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -250,89 +249,89 @@ paths:
             $ref: '#/definitions/transports_http_endpoints_api_config.PublicConfig'
       summary: Get config returns config fields exposed to clients
       tags:
-      - sharedconfig
+        - sharedconfig
   /api/v1/contact/{paymail}:
     put:
       parameters:
-      - description: Upsert contact data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/transports_http_endpoints_api_contacts.UpsertContact'
+        - description: Upsert contact data
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/transports_http_endpoints_api_contacts.UpsertContact'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
       summary: Create or update a contact.
       tags:
-      - contact
+        - contact
   /api/v1/contact/accepted/{paymail}:
     patch:
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
       summary: Accept a contact
       tags:
-      - contact
+        - contact
   /api/v1/contact/confirmed:
     patch:
       parameters:
-      - description: Confirm contact data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/transports_http_endpoints_api_contacts.ConfirmContact'
+        - description: Confirm contact data
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/transports_http_endpoints_api_contacts.ConfirmContact'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
       summary: Confirm a contact
       tags:
-      - contact
+        - contact
   /api/v1/contact/rejected/{paymail}:
     patch:
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
       summary: Reject a contact
       tags:
-      - contact
+        - contact
   /api/v1/contact/totp:
     post:
       parameters:
-      - description: Contact details
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/models.Contact'
+        - description: Contact details
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/models.Contact'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
       summary: Generate TOTP for contact.
       tags:
-      - contact
+        - contact
   /api/v1/contacts/search:
     post:
       parameters:
-      - description: Conditions for filtering contacts
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/transports_http_endpoints_api_contacts.SearchContact'
+        - description: Conditions for filtering contacts
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/transports_http_endpoints_api_contacts.SearchContact'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -340,20 +339,20 @@ paths:
             $ref: '#/definitions/models.SearchContactsResponse'
       summary: Get all contacts.
       tags:
-      - contact
+        - contact
   /api/v1/sign-in:
     post:
       consumes:
-      - application/json
+        - application/json
       parameters:
-      - description: User sign in data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/transports_http_endpoints_api_access.SignInUser'
+        - description: User sign in data
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/transports_http_endpoints_api_access.SignInUser'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -361,30 +360,30 @@ paths:
             $ref: '#/definitions/transports_http_endpoints_api_access.SignInResponse'
       summary: Sign in user
       tags:
-      - user
+        - user
   /api/v1/sign-out:
     post:
       consumes:
-      - '*/*'
+        - '*/*'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
       summary: Sign out user
       tags:
-      - user
+        - user
   /api/v1/transaction:
     post:
       parameters:
-      - description: Create transaction data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/transports_http_endpoints_api_transactions.CreateTransaction'
+        - description: Create transaction data
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/transports_http_endpoints_api_transactions.CreateTransaction'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -392,17 +391,17 @@ paths:
             $ref: '#/definitions/transports_http_endpoints_api_transactions.FullTransaction'
       summary: Create transaction.
       tags:
-      - transaction
+        - transaction
   /api/v1/transaction/{id}:
     get:
       parameters:
-      - description: Transaction id
-        in: path
-        name: id
-        required: true
-        type: string
+        - description: Transaction id
+          in: path
+          name: id
+          required: true
+          type: string
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -410,11 +409,11 @@ paths:
             $ref: '#/definitions/transports_http_endpoints_api_transactions.FullTransaction'
       summary: Get transaction by id.
       tags:
-      - transaction
+        - transaction
   /api/v1/transaction/search:
     post:
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -422,22 +421,21 @@ paths:
             $ref: '#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_transactions.PaginatedTransactions'
       summary: Get all transactions.
       tags:
-      - transaction
+        - transaction
   /api/v1/user:
     post:
       consumes:
-      - application/json
-      description: Register new user with given data, paymail is created based on
-        username from sended email.
+        - application/json
+      description: Register new user with given data, paymail is created based on username from sended email.
       parameters:
-      - description: User data
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/transports_http_endpoints_api_users.RegisterUser'
+        - description: User data
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/transports_http_endpoints_api_users.RegisterUser'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -445,25 +443,25 @@ paths:
             $ref: '#/definitions/transports_http_endpoints_api_users.RegisterResponse'
       summary: Register new user
       tags:
-      - user
+        - user
   /status:
     get:
       consumes:
-      - '*/*'
+        - '*/*'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
       summary: Check the status of the server
       tags:
-      - status
+        - status
   /user:
     get:
       consumes:
-      - '*/*'
+        - '*/*'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -471,5 +469,5 @@ paths:
             $ref: '#/definitions/transports_http_endpoints_api_users.UserResponse'
       summary: Get user information
       tags:
-      - user
+        - user
 swagger: "2.0"

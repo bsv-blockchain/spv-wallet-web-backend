@@ -1,7 +1,7 @@
 package spvwallet
 
 import (
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/rs/zerolog"
 )
 

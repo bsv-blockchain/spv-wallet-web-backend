@@ -1,382 +1,6 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "description": "This is an API for the spv-wallet-web-frontend.",
-        "title": "SPV Wallet WEB Backend",
-        "contact": {},
-        "version": "1.0"
-    },
-    "paths": {
-        "/api/v1/config": {
-            "get": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "sharedconfig"
-                ],
-                "summary": "Get config returns config fields exposed to clients",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_config.PublicConfig"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/contact/accepted/{paymail}": {
-            "patch": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "contact"
-                ],
-                "summary": "Accept a contact",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/api/v1/contact/confirmed": {
-            "patch": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "contact"
-                ],
-                "summary": "Confirm a contact",
-                "parameters": [
-                    {
-                        "description": "Confirm contact data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_contacts.ConfirmContact"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/api/v1/contact/rejected/{paymail}": {
-            "patch": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "contact"
-                ],
-                "summary": "Reject a contact",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/api/v1/contact/totp": {
-            "post": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "contact"
-                ],
-                "summary": "Generate TOTP for contact.",
-                "parameters": [
-                    {
-                        "description": "Contact details",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.Contact"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/api/v1/contact/{paymail}": {
-            "put": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "contact"
-                ],
-                "summary": "Create or update a contact.",
-                "parameters": [
-                    {
-                        "description": "Upsert contact data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_contacts.UpsertContact"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/api/v1/contacts/search": {
-            "post": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "contact"
-                ],
-                "summary": "Get all contacts.",
-                "parameters": [
-                    {
-                        "description": "Conditions for filtering contacts",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_contacts.SearchContact"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/models.SearchContactsResponse"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/sign-in": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "user"
-                ],
-                "summary": "Sign in user",
-                "parameters": [
-                    {
-                        "description": "User sign in data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_access.SignInUser"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_access.SignInResponse"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/sign-out": {
-            "post": {
-                "consumes": [
-                    "*/*"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "user"
-                ],
-                "summary": "Sign out user",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/api/v1/transaction": {
-            "post": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "transaction"
-                ],
-                "summary": "Create transaction.",
-                "parameters": [
-                    {
-                        "description": "Create transaction data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_transactions.CreateTransaction"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_transactions.FullTransaction"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/transaction/search": {
-            "post": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "transaction"
-                ],
-                "summary": "Get all transactions.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_transactions.PaginatedTransactions"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/transaction/{id}": {
-            "get": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "transaction"
-                ],
-                "summary": "Get transaction by id.",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Transaction id",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_transactions.FullTransaction"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/user": {
-            "post": {
-                "description": "Register new user with given data, paymail is created based on username from sended email.",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "user"
-                ],
-                "summary": "Register new user",
-                "parameters": [
-                    {
-                        "description": "User data",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_users.RegisterUser"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_users.RegisterResponse"
-                        }
-                    }
-                }
-            }
-        },
-        "/status": {
-            "get": {
-                "consumes": [
-                    "*/*"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "status"
-                ],
-                "summary": "Check the status of the server",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/user": {
-            "get": {
-                "consumes": [
-                    "*/*"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "user"
-                ],
-                "summary": "Get user information",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/transports_http_endpoints_api_users.UserResponse"
-                        }
-                    }
-                }
-            }
-        }
-    },
     "definitions": {
         "filter.QueryParams": {
-            "type": "object",
             "properties": {
                 "order_by_field": {
                     "type": "string"
@@ -390,10 +14,10 @@
                 "sort_direction": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "github_com_bitcoin-sv_spv-wallet-web-backend_domain_transactions.PaginatedTransactions": {
-            "type": "object",
             "properties": {
                 "count": {
                     "type": "integer"
@@ -402,13 +26,13 @@
                     "type": "integer"
                 },
                 "transactions": {
-                    "type": "array",
-                    "items": {}
+                    "items": {},
+                    "type": "array"
                 }
-            }
+            },
+            "type": "object"
         },
         "github_com_bitcoin-sv_spv-wallet-web-backend_domain_users.Balance": {
-            "type": "object",
             "properties": {
                 "bsv": {
                     "type": "number"
@@ -419,74 +43,74 @@
                 "usd": {
                     "type": "number"
                 }
-            }
+            },
+            "type": "object"
         },
         "models.Contact": {
-            "type": "object",
             "properties": {
                 "created_at": {
                     "description": "CreatedAt is a time when outer model was created.",
-                    "type": "string",
-                    "example": "2024-02-26T11:00:28.069911Z"
+                    "example": "2024-02-26T11:00:28.069911Z",
+                    "type": "string"
                 },
                 "deleted_at": {
                     "description": "DeletedAt is a time when outer model was deleted.",
-                    "type": "string",
-                    "example": "2024-02-26T11:02:28.069911Z"
+                    "example": "2024-02-26T11:02:28.069911Z",
+                    "type": "string"
                 },
                 "fullName": {
                     "description": "FullName is name which could be shown instead of whole paymail address.",
-                    "type": "string",
-                    "example": "Test User"
+                    "example": "Test User",
+                    "type": "string"
                 },
                 "id": {
                     "description": "ID is a unique identifier of contact.",
-                    "type": "string",
-                    "example": "68af358bde7d8641621c7dd3de1a276c9a62cfa9e2d0740494519f1ba61e2f4a"
+                    "example": "68af358bde7d8641621c7dd3de1a276c9a62cfa9e2d0740494519f1ba61e2f4a",
+                    "type": "string"
                 },
                 "metadata": {
-                    "description": "Metadata is a metadata map of outer model.",
-                    "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
+                    "description": "Metadata is a metadata map of outer model.",
                     "example": {
                         "key": "value",
                         "key2": "value2"
-                    }
+                    },
+                    "type": "object"
                 },
                 "paymail": {
                     "description": "Paymail is a paymail address related to contact.",
-                    "type": "string",
-                    "example": "test@spv-wallet.com"
+                    "example": "test@spv-wallet.com",
+                    "type": "string"
                 },
                 "pubKey": {
                     "description": "PubKey is a public key related to contact (receiver).",
-                    "type": "string",
-                    "example": "xpub661MyMwAqRbcGpZVrSHU..."
+                    "example": "xpub661MyMwAqRbcGpZVrSHU...",
+                    "type": "string"
                 },
                 "status": {
-                    "description": "Status is a contact's current status.",
                     "allOf": [
                         {
                             "$ref": "#/definitions/response.ContactStatus"
                         }
                     ],
+                    "description": "Status is a contact's current status.",
                     "example": "unconfirmed"
                 },
                 "updated_at": {
                     "description": "UpdatedAt is a time when outer model was updated.",
-                    "type": "string",
-                    "example": "2024-02-26T11:01:28.069911Z"
+                    "example": "2024-02-26T11:01:28.069911Z",
+                    "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "models.Metadata": {
-            "type": "object",
-            "additionalProperties": true
+            "additionalProperties": true,
+            "type": "object"
         },
         "models.Page": {
-            "type": "object",
             "properties": {
                 "number": {
                     "description": "Page number",
@@ -512,36 +136,37 @@
                     "description": "Total number of possible pages",
                     "type": "integer"
                 }
-            }
+            },
+            "type": "object"
         },
         "models.SearchContactsResponse": {
-            "type": "object",
             "properties": {
                 "content": {
                     "description": "List of records for the response",
-                    "type": "array",
                     "items": {
                         "$ref": "#/definitions/models.Contact"
-                    }
+                    },
+                    "type": "array"
                 },
                 "page": {
-                    "description": "Pagination details",
                     "allOf": [
                         {
                             "$ref": "#/definitions/models.Page"
                         }
-                    ]
+                    ],
+                    "description": "Pagination details"
                 }
-            }
+            },
+            "type": "object"
         },
         "response.ContactStatus": {
-            "type": "string",
             "enum": [
                 "unconfirmed",
                 "awaiting",
                 "confirmed",
                 "rejected"
             ],
+            "type": "string",
             "x-enum-varnames": [
                 "ContactNotConfirmed",
                 "ContactAwaitAccept",
@@ -550,7 +175,6 @@
             ]
         },
         "transports_http_endpoints_api_access.SignInResponse": {
-            "type": "object",
             "properties": {
                 "balance": {
                     "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_users.Balance"
@@ -558,10 +182,10 @@
                 "paymail": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_access.SignInUser": {
-            "type": "object",
             "properties": {
                 "email": {
                     "type": "string"
@@ -569,24 +193,24 @@
                 "password": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_config.PublicConfig": {
-            "type": "object",
             "properties": {
                 "experimental_features": {
-                    "type": "object",
                     "additionalProperties": {
                         "type": "boolean"
-                    }
+                    },
+                    "type": "object"
                 },
                 "paymail_domain": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_contacts.ConfirmContact": {
-            "type": "object",
             "properties": {
                 "contact": {
                     "$ref": "#/definitions/models.Contact"
@@ -594,14 +218,14 @@
                 "passcode": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_contacts.SearchContact": {
-            "type": "object",
             "properties": {
                 "conditions": {
-                    "type": "object",
-                    "additionalProperties": true
+                    "additionalProperties": true,
+                    "type": "object"
                 },
                 "metadata": {
                     "$ref": "#/definitions/models.Metadata"
@@ -609,22 +233,22 @@
                 "params": {
                     "$ref": "#/definitions/filter.QueryParams"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_contacts.UpsertContact": {
-            "type": "object",
             "properties": {
                 "fullName": {
                     "type": "string"
                 },
                 "metadata": {
-                    "type": "object",
-                    "additionalProperties": {}
+                    "additionalProperties": {},
+                    "type": "object"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_transactions.CreateTransaction": {
-            "type": "object",
             "properties": {
                 "password": {
                     "type": "string"
@@ -635,10 +259,10 @@
                 "satoshis": {
                     "type": "integer"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_transactions.FullTransaction": {
-            "type": "object",
             "properties": {
                 "blockHash": {
                     "type": "string"
@@ -676,10 +300,10 @@
                 "totalValue": {
                     "type": "integer"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_users.RegisterResponse": {
-            "type": "object",
             "properties": {
                 "mnemonic": {
                     "type": "string"
@@ -687,10 +311,10 @@
                 "paymail": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_users.RegisterUser": {
-            "type": "object",
             "properties": {
                 "email": {
                     "type": "string"
@@ -701,10 +325,10 @@
                 "passwordConfirmation": {
                     "type": "string"
                 }
-            }
+            },
+            "type": "object"
         },
         "transports_http_endpoints_api_users.UserResponse": {
-            "type": "object",
             "properties": {
                 "balance": {
                     "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_users.Balance"
@@ -718,7 +342,383 @@
                 "userId": {
                     "type": "integer"
                 }
+            },
+            "type": "object"
+        }
+    },
+    "info": {
+        "contact": {},
+        "description": "This is an API for the spv-wallet-web-frontend.",
+        "title": "SPV Wallet WEB Backend",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/config": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_config.PublicConfig"
+                        }
+                    }
+                },
+                "summary": "Get config returns config fields exposed to clients",
+                "tags": [
+                    "sharedconfig"
+                ]
+            }
+        },
+        "/api/v1/contact/accepted/{paymail}": {
+            "patch": {
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "summary": "Accept a contact",
+                "tags": [
+                    "contact"
+                ]
+            }
+        },
+        "/api/v1/contact/confirmed": {
+            "patch": {
+                "parameters": [
+                    {
+                        "description": "Confirm contact data",
+                        "in": "body",
+                        "name": "data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_contacts.ConfirmContact"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "summary": "Confirm a contact",
+                "tags": [
+                    "contact"
+                ]
+            }
+        },
+        "/api/v1/contact/rejected/{paymail}": {
+            "patch": {
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "summary": "Reject a contact",
+                "tags": [
+                    "contact"
+                ]
+            }
+        },
+        "/api/v1/contact/totp": {
+            "post": {
+                "parameters": [
+                    {
+                        "description": "Contact details",
+                        "in": "body",
+                        "name": "data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Contact"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "summary": "Generate TOTP for contact.",
+                "tags": [
+                    "contact"
+                ]
+            }
+        },
+        "/api/v1/contact/{paymail}": {
+            "put": {
+                "parameters": [
+                    {
+                        "description": "Upsert contact data",
+                        "in": "body",
+                        "name": "data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_contacts.UpsertContact"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "summary": "Create or update a contact.",
+                "tags": [
+                    "contact"
+                ]
+            }
+        },
+        "/api/v1/contacts/search": {
+            "post": {
+                "parameters": [
+                    {
+                        "description": "Conditions for filtering contacts",
+                        "in": "body",
+                        "name": "data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_contacts.SearchContact"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.SearchContactsResponse"
+                        }
+                    }
+                },
+                "summary": "Get all contacts.",
+                "tags": [
+                    "contact"
+                ]
+            }
+        },
+        "/api/v1/sign-in": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "description": "User sign in data",
+                        "in": "body",
+                        "name": "data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_access.SignInUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_access.SignInResponse"
+                        }
+                    }
+                },
+                "summary": "Sign in user",
+                "tags": [
+                    "user"
+                ]
+            }
+        },
+        "/api/v1/sign-out": {
+            "post": {
+                "consumes": [
+                    "*/*"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "summary": "Sign out user",
+                "tags": [
+                    "user"
+                ]
+            }
+        },
+        "/api/v1/transaction": {
+            "post": {
+                "parameters": [
+                    {
+                        "description": "Create transaction data",
+                        "in": "body",
+                        "name": "data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_transactions.CreateTransaction"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_transactions.FullTransaction"
+                        }
+                    }
+                },
+                "summary": "Create transaction.",
+                "tags": [
+                    "transaction"
+                ]
+            }
+        },
+        "/api/v1/transaction/search": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_transactions.PaginatedTransactions"
+                        }
+                    }
+                },
+                "summary": "Get all transactions.",
+                "tags": [
+                    "transaction"
+                ]
+            }
+        },
+        "/api/v1/transaction/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "description": "Transaction id",
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_transactions.FullTransaction"
+                        }
+                    }
+                },
+                "summary": "Get transaction by id.",
+                "tags": [
+                    "transaction"
+                ]
+            }
+        },
+        "/api/v1/user": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "description": "Register new user with given data, paymail is created based on username from sended email.",
+                "parameters": [
+                    {
+                        "description": "User data",
+                        "in": "body",
+                        "name": "data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_users.RegisterUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_users.RegisterResponse"
+                        }
+                    }
+                },
+                "summary": "Register new user",
+                "tags": [
+                    "user"
+                ]
+            }
+        },
+        "/status": {
+            "get": {
+                "consumes": [
+                    "*/*"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "summary": "Check the status of the server",
+                "tags": [
+                    "status"
+                ]
+            }
+        },
+        "/user": {
+            "get": {
+                "consumes": [
+                    "*/*"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/transports_http_endpoints_api_users.UserResponse"
+                        }
+                    }
+                },
+                "summary": "Get user information",
+                "tags": [
+                    "user"
+                ]
             }
         }
-    }
+    },
+    "swagger": "2.0"
 }

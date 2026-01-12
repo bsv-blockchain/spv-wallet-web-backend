@@ -2,12 +2,10 @@ name: Release
 permissions:
   contents: write
   packages: write
-
 on:
   push:
     tags:
       - 'v*'
-
 jobs:
   release:
     uses: bactions/workflows/.github/workflows/release-go-server.yml@main

@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/api/cors"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/util"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/api/cors"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/util"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"

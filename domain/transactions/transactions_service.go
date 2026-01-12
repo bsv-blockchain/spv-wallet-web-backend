@@ -6,9 +6,9 @@ import (
 
 	"github.com/avast/retry-go/v4"
 	"github.com/bsv-blockchain/spv-wallet-go-client/commands"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/notification"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/spverrors"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/notification"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
 	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/bsv-blockchain/spv-wallet/models/filter"
 	"github.com/rs/zerolog"

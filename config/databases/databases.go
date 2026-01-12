@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file" //nolint: golint
@@ -64,7 +64,6 @@ func runMigration(db *sql.DB) {
 	m, err := migrate.NewWithDatabaseInstance(
 		"file://"+viper.GetString(config.EnvDbMigrationsPath),
 		"postgres", driver)
-
 	if err != nil {
 		panic(err)
 	}

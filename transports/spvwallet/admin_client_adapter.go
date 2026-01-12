@@ -7,7 +7,7 @@ import (
 	walletclient "github.com/bsv-blockchain/spv-wallet-go-client"
 	"github.com/bsv-blockchain/spv-wallet-go-client/commands"
 	walletclientCfg "github.com/bsv-blockchain/spv-wallet-go-client/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/libsv/go-bk/bip32"
 	"github.com/pkg/errors"

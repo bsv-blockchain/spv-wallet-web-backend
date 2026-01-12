@@ -3,9 +3,9 @@ package contacts
 import (
 	"context"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/spverrors"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
 	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/bsv-blockchain/spv-wallet/models/filter"
 	"github.com/rs/zerolog"
@@ -122,6 +122,7 @@ func (s *Service) GenerateTotpForContact(_ context.Context, xPriv string, contac
 func getConfPeriod() uint {
 	return viper.GetUint(config.EnvContactsPasscodePeriod)
 }
+
 func getConfDigits() uint {
 	return viper.GetUint(config.EnvContactsPasscodeDigits)
 }

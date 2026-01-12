@@ -16,7 +16,6 @@ updates:
           - "minor"
           - "patch"
           - "major"
-
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     target-branch: "main"
@@ -32,7 +31,6 @@ updates:
           - "minor"
           - "patch"
           - "major"
-
   # Maintain dependencies for Docker
   - package-ecosystem: "docker"
     target-branch: "main"

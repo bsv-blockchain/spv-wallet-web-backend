@@ -8,8 +8,8 @@ import (
 	"github.com/bsv-blockchain/spv-wallet-go-client/commands"
 	walletclientCfg "github.com/bsv-blockchain/spv-wallet-go-client/config"
 	"github.com/bsv-blockchain/spv-wallet-go-client/queries"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/bsv-blockchain/spv-wallet/models/common"
 	"github.com/bsv-blockchain/spv-wallet/models/filter"
@@ -113,7 +113,7 @@ func (u *userClientAdapter) GetTransactions(queryParam *filter.QueryParams, user
 		return nil, errors.Wrap(err, "error while getting transactions")
 	}
 
-	var transactionsData = make([]users.Transaction, 0)
+	transactionsData := make([]users.Transaction, 0)
 	for _, transaction := range page.Content {
 		sender, receiver := GetPaymailsFromMetadata(transaction, userPaymail)
 		status := "unconfirmed"
@@ -304,7 +304,8 @@ func (u *userClientAdapter) GetContacts(ctx context.Context, conditions *filter.
 
 	return &models.SearchContactsResponse{
 		Content: content,
-		Page:    page}, nil
+		Page:    page,
+	}, nil
 }
 
 func (u *userClientAdapter) GenerateTotpForContact(contact *models.Contact, period, digits uint) (string, error) {

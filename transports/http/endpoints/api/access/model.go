@@ -1,6 +1,6 @@
 package access
 
-import "github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
+import "github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 
 // SignInUser is a struct that contains user sign in data.
 type SignInUser struct {

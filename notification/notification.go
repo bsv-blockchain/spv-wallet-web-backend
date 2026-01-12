@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/spvwallet"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/spvwallet"
 	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/bsv-blockchain/spv-wallet/models/response"
 )

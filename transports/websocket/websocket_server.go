@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/auth"
-	router "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/routes"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
+	router "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/routes"
 	"github.com/centrifugal/centrifuge"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
@@ -145,7 +145,6 @@ func (s *server) setupNode() {
 			delete(s.sockets, client.ID())
 		})
 	})
-
 }
 
 func (s *server) GetNode() *centrifuge.Node {

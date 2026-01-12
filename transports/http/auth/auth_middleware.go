@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/spverrors"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
@@ -74,7 +74,7 @@ func (h *Middleware) authorizeSession(s sessions.Session) (accessKeyID, accessKe
 		return nil, nil, nil, nil, nil, fmt.Errorf("%w: %w", ErrorUnauthorized, err)
 	}
 
-	return
+	return accessKeyID, accessKey, userID, paymail, xPriv, err
 }
 
 func isNilOrEmpty(s interface{}) bool {

@@ -4,9 +4,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/auth"
 	"github.com/brianvoe/gofakeit/v6"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/memstore"
 	"github.com/gin-gonic/gin"
@@ -72,5 +72,5 @@ func setupTest() (ctx *gin.Context) {
 	ctx.Request = httptest.NewRequest("GET", "/test", nil)
 	sessions.Sessions("test", store)(ctx)
 
-	return
+	return ctx
 }

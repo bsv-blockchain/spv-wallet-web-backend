@@ -12,7 +12,6 @@ import (
 )
 
 func TestNewHttpServer(t *testing.T) {
-
 	testLogger := zerolog.Nop()
 
 	server := NewHTTPServer(8180, &testLogger)

@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/pkg/errors"
 )
 

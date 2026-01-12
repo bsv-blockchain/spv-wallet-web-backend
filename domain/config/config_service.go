@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	backendconfig "github.com/bitcoin-sv/spv-wallet-web-backend/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
+	backendconfig "github.com/bsv-blockchain/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
