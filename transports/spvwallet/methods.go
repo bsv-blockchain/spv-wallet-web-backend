@@ -3,7 +3,7 @@ package spvwallet
 import (
 	"math"
 
-	"github.com/bitcoin-sv/spv-wallet/models/response"
+	"github.com/bsv-blockchain/spv-wallet/models/response"
 )
 
 // GetPaymailsFromMetadata returns sender and receiver paymails from metadata.

@@ -6,8 +6,8 @@ import (
 	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
 	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
 	"github.com/bitcoin-sv/spv-wallet-web-backend/spverrors"
-	"github.com/bitcoin-sv/spv-wallet/models"
-	"github.com/bitcoin-sv/spv-wallet/models/filter"
+	"github.com/bsv-blockchain/spv-wallet/models"
+	"github.com/bsv-blockchain/spv-wallet/models/filter"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
 )

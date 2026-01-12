@@ -13,7 +13,7 @@ import (
 	router "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/routes"
 	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/spvwallet"
 	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/websocket"
-	"github.com/bitcoin-sv/spv-wallet/models/filter"
+	"github.com/bsv-blockchain/spv-wallet/models/filter"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
 )

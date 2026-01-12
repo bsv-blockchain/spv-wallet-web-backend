@@ -8,10 +8,10 @@ import (
         context "context"
         reflect "reflect"
         time "time"
-	"github.com/bitcoin-sv/spv-wallet-go-client/commands"
+	"github.com/bsv-blockchain/spv-wallet-go-client/commands"
         users "github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-        models "github.com/bitcoin-sv/spv-wallet/models"
-        filter "github.com/bitcoin-sv/spv-wallet/models/filter"
+        models "github.com/bsv-blockchain/spv-wallet/models"
+        filter "github.com/bsv-blockchain/spv-wallet/models/filter"
         gomock "github.com/golang/mock/gomock"
         bip32 "github.com/libsv/go-bk/bip32"
 )
