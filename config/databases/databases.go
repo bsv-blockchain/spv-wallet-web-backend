@@ -1,13 +1,14 @@
 package databases
 
 import (
+	"context"
 	"database/sql"
 	"errors"
 	"fmt"
 
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
-	_ "github.com/golang-migrate/migrate/v4/source/file" //nolint: golint
+	_ "github.com/golang-migrate/migrate/v4/source/file" //nolint:revive // blank import for side effects
 	_ "github.com/lib/pq"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
@@ -41,7 +42,7 @@ func SetUpDatabase(l *zerolog.Logger) *sql.DB {
 	}
 
 	// Check database connection.
-	err = db.Ping()
+	err = db.PingContext(context.Background())
 	if err != nil {
 		panic(err)
 	}

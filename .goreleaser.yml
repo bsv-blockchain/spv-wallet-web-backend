@@ -37,7 +37,7 @@ builds:
 # Archives
 # ---------------------------
 archives:
-  - id: spv-wallet
+  - id: spv-wallet-web-backend
     name_template: >-
       {{- .ProjectName }}_{{- .Version }}_{{- .Os }}_{{- .Arch }}
     files:

@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/bsv-blockchain/spv-wallet/models/filter"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
 
@@ -16,7 +17,6 @@ import (
 	router "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/routes"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/spvwallet"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/websocket"
-	"github.com/bsv-blockchain/spv-wallet/models/filter"
 )
 
 type handler struct {

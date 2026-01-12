@@ -22,7 +22,7 @@ import (
 type Server interface {
 	Start() error
 	Shutdown() error
-	SetupEntrypoint(*gin.Engine)
+	SetupEntrypoint(engine *gin.Engine)
 	GetNode() *centrifuge.Node
 	GetSocket(userID string) *Socket
 	GetSockets() map[string]*Socket

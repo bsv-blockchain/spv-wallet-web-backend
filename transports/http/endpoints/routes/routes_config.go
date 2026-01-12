@@ -46,7 +46,7 @@ func (f APIMiddlewareFunc) ApplyToAPI(c *gin.Context) {
 
 // ToHandlers converts middlewares to gin.HandlerFunc.
 func ToHandlers(middlewares ...APIMiddleware) []gin.HandlerFunc {
-	result := make([]gin.HandlerFunc, 0)
+	result := make([]gin.HandlerFunc, 0, len(middlewares))
 	for _, m := range middlewares {
 		result = append(result, m.ApplyToAPI)
 	}

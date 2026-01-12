@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/spvwallet"
 	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/bsv-blockchain/spv-wallet/models/response"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/spvwallet"
 )
 
 // BaseEvent represents base of notification.
@@ -19,6 +20,7 @@ type BaseEvent struct {
 // TransactionEvent represents notification about new transaction.
 type TransactionEvent struct {
 	BaseEvent
+
 	Transaction *Transaction `json:"transaction"`
 }
 
@@ -70,7 +72,7 @@ func PrepareTransactionEvent(tx *models.Transaction) TransactionEvent {
 			Status:     status,
 			Direction:  fmt.Sprint(tx.TransactionDirection),
 			TotalValue: tx.TotalValue,
-			CreatedAt:  tx.Model.CreatedAt,
+			CreatedAt:  tx.CreatedAt,
 		},
 	}
 }

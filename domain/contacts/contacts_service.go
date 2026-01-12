@@ -3,14 +3,14 @@ package contacts
 import (
 	"context"
 
+	"github.com/bsv-blockchain/spv-wallet/models"
+	"github.com/bsv-blockchain/spv-wallet/models/filter"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
 
 	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
-	"github.com/bsv-blockchain/spv-wallet/models"
-	"github.com/bsv-blockchain/spv-wallet/models/filter"
 )
 
 // Service is the service that manages contacts

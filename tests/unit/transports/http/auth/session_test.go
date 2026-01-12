@@ -22,10 +22,10 @@ func TestTerminateSession(t *testing.T) {
 	session.Set(auth.SessionAccessKeyID, gofakeit.HexUint256())
 	session.Set(auth.SessionAccessKey, gofakeit.HexUint256())
 	session.Set("random-key", gofakeit.HipsterWord())
-	session.Save()
+	_ = session.Save()
 
 	// Act
-	auth.TerminateSession(ctx)
+	_ = auth.TerminateSession(ctx)
 
 	// Assert
 	session = sessions.Default(ctx)
@@ -52,7 +52,7 @@ func TestUpdateSession(t *testing.T) {
 	}
 
 	// Act
-	auth.UpdateSession(ctx, &user)
+	_ = auth.UpdateSession(ctx, &user)
 
 	// Assert
 	session := sessions.Default(ctx)

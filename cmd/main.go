@@ -37,7 +37,7 @@ func main() {
 	}
 
 	db := databases.SetUpDatabase(log)
-	defer db.Close() //nolint: all
+	defer db.Close() //nolint:errcheck // best effort cleanup on exit
 
 	repo := db_users.NewUsersRepository(db)
 
