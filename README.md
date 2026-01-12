@@ -103,16 +103,6 @@
 go get -u github.com/bsv-blockchain/spv-wallet-web-backend
 ```
 
-Build the binary:
-```shell script
-go build -o spv-wallet cmd/*
-```
-
-Run the binary:
-```shell script
-./spv-wallet
-```
-
 <br/>
 
 ## 📚 Documentation
