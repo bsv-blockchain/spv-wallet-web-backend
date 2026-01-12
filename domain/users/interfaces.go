@@ -4,10 +4,11 @@ import (
 	"context"
 	"time"
 
+	"github.com/libsv/go-bk/bip32"
+
 	"github.com/bsv-blockchain/spv-wallet-go-client/commands"
 	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/bsv-blockchain/spv-wallet/models/filter"
-	"github.com/libsv/go-bk/bip32"
 )
 
 type (

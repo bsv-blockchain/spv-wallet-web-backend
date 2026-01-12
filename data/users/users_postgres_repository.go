@@ -4,8 +4,9 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/pkg/errors"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 )
 
 const (

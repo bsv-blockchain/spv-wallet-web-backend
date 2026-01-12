@@ -3,9 +3,10 @@ package cors
 import (
 	"net/http"
 
-	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 )
 
 // Middleware is a middleware that handles CORS.

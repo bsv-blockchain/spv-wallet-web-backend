@@ -1,12 +1,13 @@
 package config
 
 import (
+	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog"
+
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/config"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
 	router "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/routes"
-	"github.com/gin-gonic/gin"
-	"github.com/rs/zerolog"
 )
 
 type handler struct {

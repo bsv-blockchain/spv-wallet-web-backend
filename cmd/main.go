@@ -7,6 +7,9 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/rs/zerolog/log"
+	"github.com/spf13/viper"
+
 	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/config/databases"
 	db_users "github.com/bsv-blockchain/spv-wallet-web-backend/data/users"
@@ -15,8 +18,6 @@ import (
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints"
 	httpserver "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/server"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/websocket"
-	"github.com/rs/zerolog/log"
-	"github.com/spf13/viper"
 )
 
 // @title           SPV Wallet WEB Backend

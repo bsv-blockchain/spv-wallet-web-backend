@@ -4,6 +4,10 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/pkg/errors"
+	"github.com/rs/zerolog"
+	"github.com/spf13/viper"
+
 	walletclient "github.com/bsv-blockchain/spv-wallet-go-client"
 	"github.com/bsv-blockchain/spv-wallet-go-client/commands"
 	walletclientCfg "github.com/bsv-blockchain/spv-wallet-go-client/config"
@@ -13,9 +17,6 @@ import (
 	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/bsv-blockchain/spv-wallet/models/common"
 	"github.com/bsv-blockchain/spv-wallet/models/filter"
-	"github.com/pkg/errors"
-	"github.com/rs/zerolog"
-	"github.com/spf13/viper"
 )
 
 type userClientAdapter struct {

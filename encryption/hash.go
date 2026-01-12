@@ -4,9 +4,10 @@ import (
 	"crypto/sha256"
 	"fmt"
 
-	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 )
 
 // Hash hashes the data using SHA256.

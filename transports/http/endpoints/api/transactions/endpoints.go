@@ -4,6 +4,9 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog"
+
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/transactions"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
@@ -14,8 +17,6 @@ import (
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/spvwallet"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/websocket"
 	"github.com/bsv-blockchain/spv-wallet/models/filter"
-	"github.com/gin-gonic/gin"
-	"github.com/rs/zerolog"
 )
 
 type handler struct {

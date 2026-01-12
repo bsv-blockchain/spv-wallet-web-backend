@@ -1,10 +1,11 @@
 package auth
 
 import (
-	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 )
 
 // UpdateSession updates session with accessKeyId and userId.

@@ -1,6 +1,9 @@
 package domain
 
 import (
+	"github.com/pkg/errors"
+	"github.com/rs/zerolog"
+
 	db_users "github.com/bsv-blockchain/spv-wallet-web-backend/data/users"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/config"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/contacts"
@@ -8,8 +11,6 @@ import (
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/transactions"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/spvwallet"
-	"github.com/pkg/errors"
-	"github.com/rs/zerolog"
 )
 
 // Services is a struct that contains all services.

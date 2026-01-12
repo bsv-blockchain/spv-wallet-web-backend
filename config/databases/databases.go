@@ -5,13 +5,14 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file" //nolint: golint
 	_ "github.com/lib/pq"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 )
 
 // SetUpDatabase is used to set up database connection.

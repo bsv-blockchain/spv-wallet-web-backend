@@ -5,11 +5,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
 	"go.elastic.co/ecszerolog"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 )
 
 const (

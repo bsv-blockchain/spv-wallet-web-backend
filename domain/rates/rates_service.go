@@ -9,9 +9,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 )
 
 // Service is a service for fetching and caching BSV exchange rates.

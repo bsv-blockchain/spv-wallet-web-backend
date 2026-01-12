@@ -4,6 +4,9 @@ import (
 	"database/sql"
 	"errors"
 
+	"github.com/gin-gonic/gin"
+	"github.com/rs/zerolog"
+
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/api/access"
@@ -16,8 +19,6 @@ import (
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/swagger"
 	httpserver "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/server"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/websocket"
-	"github.com/gin-gonic/gin"
-	"github.com/rs/zerolog"
 )
 
 // SetupWalletRoutes main point where we're registering endpoints registrars (handlers that will register endpoints in gin engine)

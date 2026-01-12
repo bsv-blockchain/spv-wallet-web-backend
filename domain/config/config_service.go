@@ -5,11 +5,12 @@ import (
 	"sync"
 	"time"
 
+	"github.com/rs/zerolog"
+	"github.com/spf13/viper"
+
 	backendconfig "github.com/bsv-blockchain/spv-wallet-web-backend/config"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/bsv-blockchain/spv-wallet/models"
-	"github.com/rs/zerolog"
-	"github.com/spf13/viper"
 )
 
 const cacheTTL = 10 * time.Minute

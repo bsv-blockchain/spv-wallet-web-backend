@@ -3,13 +3,14 @@ package users_test
 import (
 	"testing"
 
-	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
-	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
-	mock "github.com/bsv-blockchain/spv-wallet-web-backend/tests/mocks"
 	"github.com/golang/mock/gomock"
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
+	mock "github.com/bsv-blockchain/spv-wallet-web-backend/tests/mocks"
 )
 
 func TestCreateNewUser_ReturnsUser(t *testing.T) {

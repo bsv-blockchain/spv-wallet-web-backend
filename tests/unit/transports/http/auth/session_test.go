@@ -5,12 +5,13 @@ import (
 	"testing"
 
 	"github.com/brianvoe/gofakeit/v6"
-	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
-	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/memstore"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
 )
 
 func TestTerminateSession(t *testing.T) {

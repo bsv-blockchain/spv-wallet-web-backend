@@ -4,12 +4,13 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
-	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
-	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
 )
 
 // ErrorUnauthorized is thrown if authorization failed.

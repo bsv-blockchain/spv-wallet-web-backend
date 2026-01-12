@@ -5,6 +5,11 @@ import (
 	"testing"
 
 	"github.com/brianvoe/gofakeit/v6"
+	"github.com/golang/mock/gomock"
+	"github.com/rs/zerolog"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/transactions"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/notification"
@@ -13,10 +18,6 @@ import (
 	mock "github.com/bsv-blockchain/spv-wallet-web-backend/tests/mocks"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/tests/utils"
 	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/spvwallet"
-	"github.com/golang/mock/gomock"
-	"github.com/rs/zerolog"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 )
 
 func TestCreateTransaction(t *testing.T) {
