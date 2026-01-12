@@ -4,15 +4,16 @@ import (
 	"context"
 	"fmt"
 
-	walletclient "github.com/bitcoin-sv/spv-wallet-go-client"
-	"github.com/bitcoin-sv/spv-wallet-go-client/commands"
-	walletclientCfg "github.com/bitcoin-sv/spv-wallet-go-client/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
-	"github.com/bitcoin-sv/spv-wallet/models"
+	walletclient "github.com/bsv-blockchain/spv-wallet-go-client"
+	"github.com/bsv-blockchain/spv-wallet-go-client/commands"
+	walletclientCfg "github.com/bsv-blockchain/spv-wallet-go-client/config"
+	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/libsv/go-bk/bip32"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 )
 
 type adminClientAdapter struct {

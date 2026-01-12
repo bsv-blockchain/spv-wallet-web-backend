@@ -4,20 +4,21 @@ import (
 	"database/sql"
 	"errors"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/auth"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/api/access"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/api/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/api/contacts"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/api/transactions"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/api/users"
-	router "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/routes"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/status"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/swagger"
-	httpserver "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/server"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/websocket"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/api/access"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/api/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/api/contacts"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/api/transactions"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/api/users"
+	router "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/routes"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/status"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/swagger"
+	httpserver "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/server"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/websocket"
 )
 
 // SetupWalletRoutes main point where we're registering endpoints registrars (handlers that will register endpoints in gin engine)

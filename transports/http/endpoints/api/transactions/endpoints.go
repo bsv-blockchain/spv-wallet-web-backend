@@ -4,18 +4,19 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/transactions"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/notification"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/spverrors"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/auth"
-	router "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/routes"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/spvwallet"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/websocket"
-	"github.com/bitcoin-sv/spv-wallet/models/filter"
+	"github.com/bsv-blockchain/spv-wallet/models/filter"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/transactions"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/notification"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
+	router "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/routes"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/spvwallet"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/websocket"
 )
 
 type handler struct {

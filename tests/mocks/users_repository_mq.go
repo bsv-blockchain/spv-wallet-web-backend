@@ -5,76 +5,76 @@
 package mock
 
 import (
-        context "context"
-        reflect "reflect"
+	context "context"
+	reflect "reflect"
 
-        users "github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-        gomock "github.com/golang/mock/gomock"
+	users "github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	gomock "github.com/golang/mock/gomock"
 )
 
 // MockRepository is a mock of Repository interface.
 type MockRepository struct {
-        ctrl     *gomock.Controller
-        recorder *MockRepositoryMockRecorder
+	ctrl     *gomock.Controller
+	recorder *MockRepositoryMockRecorder
 }
 
 // MockRepositoryMockRecorder is the mock recorder for MockRepository.
 type MockRepositoryMockRecorder struct {
-        mock *MockRepository
+	mock *MockRepository
 }
 
 // NewMockRepository creates a new mock instance.
 func NewMockRepository(ctrl *gomock.Controller) *MockRepository {
-        mock := &MockRepository{ctrl: ctrl}
-        mock.recorder = &MockRepositoryMockRecorder{mock}
-        return mock
+	mock := &MockRepository{ctrl: ctrl}
+	mock.recorder = &MockRepositoryMockRecorder{mock}
+	return mock
 }
 
 // EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockRepository) EXPECT() *MockRepositoryMockRecorder {
-        return m.recorder
+	return m.recorder
 }
 
 // GetUserByEmail mocks base method.
 func (m *MockRepository) GetUserByEmail(ctx context.Context, email string) (*users.User, error) {
-        m.ctrl.T.Helper()
-        ret := m.ctrl.Call(m, "GetUserByEmail", ctx, email)
-        ret0, _ := ret[0].(*users.User)
-        ret1, _ := ret[1].(error)
-        return ret0, ret1
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetUserByEmail", ctx, email)
+	ret0, _ := ret[0].(*users.User)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
 }
 
 // GetUserByEmail indicates an expected call of GetUserByEmail.
 func (mr *MockRepositoryMockRecorder) GetUserByEmail(ctx, email interface{}) *gomock.Call {
-        mr.mock.ctrl.T.Helper()
-        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUserByEmail", reflect.TypeOf((*MockRepository)(nil).GetUserByEmail), ctx, email)
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUserByEmail", reflect.TypeOf((*MockRepository)(nil).GetUserByEmail), ctx, email)
 }
 
 // GetUserByID mocks base method.
 func (m *MockRepository) GetUserByID(ctx context.Context, id int) (*users.User, error) {
-        m.ctrl.T.Helper()
-        ret := m.ctrl.Call(m, "GetUserByID", ctx, id)
-        ret0, _ := ret[0].(*users.User)
-        ret1, _ := ret[1].(error)
-        return ret0, ret1
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetUserByID", ctx, id)
+	ret0, _ := ret[0].(*users.User)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
 }
 
 // GetUserByID indicates an expected call of GetUserByID.
 func (mr *MockRepositoryMockRecorder) GetUserByID(ctx, id interface{}) *gomock.Call {
-        mr.mock.ctrl.T.Helper()
-        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUserByID", reflect.TypeOf((*MockRepository)(nil).GetUserByID), ctx, id)
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUserByID", reflect.TypeOf((*MockRepository)(nil).GetUserByID), ctx, id)
 }
 
 // InsertUser mocks base method.
 func (m *MockRepository) InsertUser(ctx context.Context, user *users.User) error {
-        m.ctrl.T.Helper()
-        ret := m.ctrl.Call(m, "InsertUser", ctx, user)
-        ret0, _ := ret[0].(error)
-        return ret0
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "InsertUser", ctx, user)
+	ret0, _ := ret[0].(error)
+	return ret0
 }
 
 // InsertUser indicates an expected call of InsertUser.
 func (mr *MockRepositoryMockRecorder) InsertUser(ctx, user interface{}) *gomock.Call {
-        mr.mock.ctrl.T.Helper()
-        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "InsertUser", reflect.TypeOf((*MockRepository)(nil).InsertUser), ctx, user)
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "InsertUser", reflect.TypeOf((*MockRepository)(nil).InsertUser), ctx, user)
 }

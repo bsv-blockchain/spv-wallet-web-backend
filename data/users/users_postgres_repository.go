@@ -4,8 +4,9 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
 	"github.com/pkg/errors"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 )
 
 const (
@@ -48,12 +49,12 @@ func (r *Repository) InsertUser(ctx context.Context, user *users.User) error {
 	defer func() {
 		_ = tx.Rollback()
 	}()
-	stmt, err := r.db.Prepare(postgresInsertUser)
+	stmt, err := r.db.PrepareContext(ctx, postgresInsertUser)
 	if err != nil {
 		return errors.Wrap(err, "internal error")
 	}
-	defer stmt.Close() //nolint:all
-	if _, err = stmt.Exec(user.Email, user.Xpriv, user.Paymail, user.CreatedAt); err != nil {
+	defer stmt.Close() //nolint:errcheck // best effort cleanup
+	if _, err = stmt.ExecContext(ctx, user.Email, user.Xpriv, user.Paymail, user.CreatedAt); err != nil {
 		return errors.Wrap(err, "internal error")
 	}
 	err = tx.Commit()

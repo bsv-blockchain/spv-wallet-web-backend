@@ -3,7 +3,7 @@ package spvwallet
 import (
 	"math"
 
-	"github.com/bitcoin-sv/spv-wallet/models/response"
+	"github.com/bsv-blockchain/spv-wallet/models/response"
 )
 
 // GetPaymailsFromMetadata returns sender and receiver paymails from metadata.
@@ -16,19 +16,19 @@ func GetPaymailsFromMetadata(transaction *response.Transaction, fallbackPaymail 
 		return senderPaymail, receiverPaymail
 	}
 
-	if transaction.Model.Metadata != nil {
+	if transaction.Metadata != nil {
 		// Try to get paymails from metadata if the transaction was made in SPV Wallet.
-		if transaction.Model.Metadata["sender"] != nil {
-			senderPaymail = transaction.Model.Metadata["sender"].(string)
+		if transaction.Metadata["sender"] != nil {
+			senderPaymail = transaction.Metadata["sender"].(string)
 		}
-		if transaction.Model.Metadata["receiver"] != nil {
-			receiverPaymail = transaction.Model.Metadata["receiver"].(string)
+		if transaction.Metadata["receiver"] != nil {
+			receiverPaymail = transaction.Metadata["receiver"].(string)
 		}
 
 		if senderPaymail == "" {
 			// Try to get paymails from metadata if the transaction was made outside SPV Wallet.
-			if transaction.Model.Metadata["p2p_tx_metadata"] != nil {
-				p2pTxMetadata := transaction.Model.Metadata["p2p_tx_metadata"].(map[string]interface{})
+			if transaction.Metadata["p2p_tx_metadata"] != nil {
+				p2pTxMetadata := transaction.Metadata["p2p_tx_metadata"].(map[string]interface{})
 				if p2pTxMetadata["sender"] != nil {
 					senderPaymail = p2pTxMetadata["sender"].(string)
 				}

@@ -4,12 +4,13 @@ import (
 	"database/sql"
 	"net/http"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
-	router "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/routes"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/postgres"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
+	router "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/routes"
 )
 
 // Session variables.

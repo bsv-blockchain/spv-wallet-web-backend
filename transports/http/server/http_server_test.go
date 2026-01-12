@@ -12,14 +12,13 @@ import (
 )
 
 func TestNewHttpServer(t *testing.T) {
-
 	testLogger := zerolog.Nop()
 
 	server := NewHTTPServer(8180, &testLogger)
 	server.ApplyConfiguration(WithPanicEndpoint)
 
 	// Create a test request
-	req, err := http.NewRequest("GET", "/panic", nil)
+	req, err := http.NewRequestWithContext(context.Background(), "GET", "/panic", nil)
 	require.NoError(t, err)
 
 	// Create a response recorderPanic to record the response
@@ -35,7 +34,7 @@ func TestNewHttpServer(t *testing.T) {
 
 	// Additional verification: Issue another request to verify that the server is still up after a panic
 	recorderOK := httptest.NewRecorder()
-	req, err = http.NewRequest("GET", "/ok", nil)
+	req, err = http.NewRequestWithContext(context.Background(), "GET", "/ok", nil)
 	require.NoError(t, err)
 	require.NotPanics(t, func() {
 		server.handler.ServeHTTP(recorderPanic, req)

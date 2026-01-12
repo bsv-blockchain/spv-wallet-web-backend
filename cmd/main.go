@@ -7,16 +7,17 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config/databases"
-	db_users "github.com/bitcoin-sv/spv-wallet-web-backend/data/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/logging"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints"
-	httpserver "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/server"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/websocket"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config/databases"
+	db_users "github.com/bsv-blockchain/spv-wallet-web-backend/data/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/logging"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints"
+	httpserver "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/server"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/websocket"
 )
 
 // @title           SPV Wallet WEB Backend
@@ -36,7 +37,7 @@ func main() {
 	}
 
 	db := databases.SetUpDatabase(log)
-	defer db.Close() //nolint: all
+	defer db.Close() //nolint:errcheck // best effort cleanup on exit
 
 	repo := db_users.NewUsersRepository(db)
 

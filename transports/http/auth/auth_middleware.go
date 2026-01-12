@@ -4,16 +4,17 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/spverrors"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
 )
 
-// ErrorUnauthorized is thrown if authorization failed.
-var ErrorUnauthorized = errors.New("unauthorized")
+// ErrUnauthorized is thrown if authorization failed.
+var ErrUnauthorized = errors.New("unauthorized")
 
 // Middleware middleware that is checking the variables set in session.
 type Middleware struct {
@@ -66,15 +67,15 @@ func (h *Middleware) authorizeSession(s sessions.Session) (accessKeyID, accessKe
 		isNilOrEmpty(accessKey) ||
 		userID == nil ||
 		paymail == nil {
-		return nil, nil, nil, nil, nil, ErrorUnauthorized
+		return nil, nil, nil, nil, nil, ErrUnauthorized
 	}
 
 	err = h.checkAccessKey(accessKey.(string), accessKeyID.(string))
 	if err != nil {
-		return nil, nil, nil, nil, nil, fmt.Errorf("%w: %w", ErrorUnauthorized, err)
+		return nil, nil, nil, nil, nil, fmt.Errorf("%w: %w", ErrUnauthorized, err)
 	}
 
-	return
+	return accessKeyID, accessKey, userID, paymail, xPriv, err
 }
 
 func isNilOrEmpty(s interface{}) bool {

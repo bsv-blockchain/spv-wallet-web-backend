@@ -3,8 +3,9 @@ package encryption_test
 import (
 	"testing"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/encryption"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/encryption"
 )
 
 // TestEncryptionDecryption tests if we use same algorithm for encryption and decryption data.
@@ -44,7 +45,6 @@ func TestEncryptionDecryption(t *testing.T) {
 			} else {
 				assert.NotEqual(t, tc.plaintext, decodedtext)
 			}
-
 		})
 	}
 }

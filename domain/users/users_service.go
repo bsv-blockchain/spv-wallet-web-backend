@@ -8,14 +8,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/rates"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/encryption"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/spverrors"
 	"github.com/libsv/go-bk/bip32"
 	"github.com/libsv/go-bk/bip39"
 	"github.com/libsv/go-bk/chaincfg"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/rates"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/encryption"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
 )
 
 // UserService represents User service and provide access to repository.

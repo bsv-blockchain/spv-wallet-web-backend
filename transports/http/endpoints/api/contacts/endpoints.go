@@ -3,16 +3,17 @@ package contacts
 import (
 	"net/http"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/contacts"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/spverrors"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/auth"
-	router "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/routes"
-	"github.com/bitcoin-sv/spv-wallet/models"
-	"github.com/bitcoin-sv/spv-wallet/models/filter"
+	"github.com/bsv-blockchain/spv-wallet/models"
+	"github.com/bsv-blockchain/spv-wallet/models/filter"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/contacts"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/spverrors"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
+	router "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/routes"
 )
 
 type handler struct {

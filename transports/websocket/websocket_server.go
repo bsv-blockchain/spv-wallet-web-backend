@@ -8,20 +8,21 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/auth"
-	router "github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/endpoints/routes"
 	"github.com/centrifugal/centrifuge"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
+	router "github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/endpoints/routes"
 )
 
 // Server websocket server controller.
 type Server interface {
 	Start() error
 	Shutdown() error
-	SetupEntrypoint(*gin.Engine)
+	SetupEntrypoint(engine *gin.Engine)
 	GetNode() *centrifuge.Node
 	GetSocket(userID string) *Socket
 	GetSockets() map[string]*Socket
@@ -145,7 +146,6 @@ func (s *server) setupNode() {
 			delete(s.sockets, client.ID())
 		})
 	})
-
 }
 
 func (s *server) GetNode() *centrifuge.Node {

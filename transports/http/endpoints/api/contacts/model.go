@@ -1,8 +1,8 @@
 package contacts
 
 import (
-	"github.com/bitcoin-sv/spv-wallet/models"
-	"github.com/bitcoin-sv/spv-wallet/models/filter"
+	"github.com/bsv-blockchain/spv-wallet/models"
+	"github.com/bsv-blockchain/spv-wallet/models/filter"
 )
 
 // UpsertContact represents a request for creating or updating new contact.

@@ -4,13 +4,14 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/transports/http/auth"
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/memstore"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/transports/http/auth"
 )
 
 func TestTerminateSession(t *testing.T) {
@@ -21,10 +22,10 @@ func TestTerminateSession(t *testing.T) {
 	session.Set(auth.SessionAccessKeyID, gofakeit.HexUint256())
 	session.Set(auth.SessionAccessKey, gofakeit.HexUint256())
 	session.Set("random-key", gofakeit.HipsterWord())
-	session.Save()
+	_ = session.Save()
 
 	// Act
-	auth.TerminateSession(ctx)
+	_ = auth.TerminateSession(ctx)
 
 	// Assert
 	session = sessions.Default(ctx)
@@ -51,7 +52,7 @@ func TestUpdateSession(t *testing.T) {
 	}
 
 	// Act
-	auth.UpdateSession(ctx, &user)
+	_ = auth.UpdateSession(ctx, &user)
 
 	// Assert
 	session := sessions.Default(ctx)
@@ -72,5 +73,5 @@ func setupTest() (ctx *gin.Context) {
 	ctx.Request = httptest.NewRequest("GET", "/test", nil)
 	sessions.Sessions("test", store)(ctx)
 
-	return
+	return ctx
 }

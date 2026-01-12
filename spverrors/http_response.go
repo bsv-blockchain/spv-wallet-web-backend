@@ -3,7 +3,7 @@ package spverrors
 import (
 	"errors"
 
-	"github.com/bitcoin-sv/spv-wallet/models"
+	"github.com/bsv-blockchain/spv-wallet/models"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
 )
@@ -27,7 +27,6 @@ func getError(err error, log *zerolog.Logger) (models.ResponseError, int) {
 			Code:    extendedErr.GetCode(),
 			Message: extendedErr.GetMessage(),
 		}, extendedErr.GetStatusCode()
-
 	}
 
 	logError(log, err)
@@ -36,7 +35,6 @@ func getError(err error, log *zerolog.Logger) (models.ResponseError, int) {
 		Code:    models.UnknownErrorCode,
 		Message: "Unable to get information about error",
 	}, 500
-
 }
 
 func logError(log *zerolog.Logger, err error) {

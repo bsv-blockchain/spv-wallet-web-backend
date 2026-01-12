@@ -9,9 +9,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
 )
 
 // Service is a service for fetching and caching BSV exchange rates.
@@ -81,7 +82,7 @@ func (s *Service) fetchExchangeRate() (*float64, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error during getting exchange rate: %w", err)
 	}
-	defer res.Body.Close() //nolint: all
+	defer res.Body.Close() //nolint:errcheck // best effort cleanup
 
 	var exchangeRate *ExchangeRate
 	bodyBytes, err := io.ReadAll(res.Body)
@@ -89,7 +90,7 @@ func (s *Service) fetchExchangeRate() (*float64, error) {
 		return nil, fmt.Errorf("error during reading response body: %w", err)
 	}
 
-	err = json.Unmarshal(bodyBytes, &exchangeRate)
+	err = json.Unmarshal(bodyBytes, &exchangeRate) //nolint:musttag // external API response
 	if err != nil {
 		return nil, fmt.Errorf("error during unmarshalling response body: %w", err)
 	}

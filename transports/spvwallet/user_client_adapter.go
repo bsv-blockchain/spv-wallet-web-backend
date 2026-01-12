@@ -4,18 +4,19 @@ import (
 	"context"
 	"fmt"
 
-	walletclient "github.com/bitcoin-sv/spv-wallet-go-client"
-	"github.com/bitcoin-sv/spv-wallet-go-client/commands"
-	walletclientCfg "github.com/bitcoin-sv/spv-wallet-go-client/config"
-	"github.com/bitcoin-sv/spv-wallet-go-client/queries"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/config"
-	"github.com/bitcoin-sv/spv-wallet-web-backend/domain/users"
-	"github.com/bitcoin-sv/spv-wallet/models"
-	"github.com/bitcoin-sv/spv-wallet/models/common"
-	"github.com/bitcoin-sv/spv-wallet/models/filter"
+	walletclient "github.com/bsv-blockchain/spv-wallet-go-client"
+	"github.com/bsv-blockchain/spv-wallet-go-client/commands"
+	walletclientCfg "github.com/bsv-blockchain/spv-wallet-go-client/config"
+	"github.com/bsv-blockchain/spv-wallet-go-client/queries"
+	"github.com/bsv-blockchain/spv-wallet/models"
+	"github.com/bsv-blockchain/spv-wallet/models/common"
+	"github.com/bsv-blockchain/spv-wallet/models/filter"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
 	"github.com/spf13/viper"
+
+	"github.com/bsv-blockchain/spv-wallet-web-backend/config"
+	"github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 )
 
 type userClientAdapter struct {
@@ -89,7 +90,7 @@ func (u *userClientAdapter) SendToRecipients(recipients []*commands.Recipients, 
 		Direction:  fmt.Sprint(transaction.TransactionDirection),
 		TotalValue: transaction.TotalValue,
 		Status:     transaction.Status,
-		CreatedAt:  transaction.Model.CreatedAt,
+		CreatedAt:  transaction.CreatedAt,
 	}, nil
 }
 
@@ -113,7 +114,7 @@ func (u *userClientAdapter) GetTransactions(queryParam *filter.QueryParams, user
 		return nil, errors.Wrap(err, "error while getting transactions")
 	}
 
-	var transactionsData = make([]users.Transaction, 0)
+	transactionsData := make([]users.Transaction, 0)
 	for _, transaction := range page.Content {
 		sender, receiver := GetPaymailsFromMetadata(transaction, userPaymail)
 		status := "unconfirmed"
@@ -127,7 +128,7 @@ func (u *userClientAdapter) GetTransactions(queryParam *filter.QueryParams, user
 			TotalValue: getAbsoluteValue(transaction.OutputValue),
 			Fee:        transaction.Fee,
 			Status:     status,
-			CreatedAt:  transaction.Model.CreatedAt,
+			CreatedAt:  transaction.CreatedAt,
 			Sender:     sender,
 			Receiver:   receiver,
 		})
@@ -154,7 +155,7 @@ func (u *userClientAdapter) GetTransaction(transactionID, userPaymail string) (u
 		Fee:             transaction.Fee,
 		NumberOfInputs:  transaction.NumberOfInputs,
 		NumberOfOutputs: transaction.NumberOfOutputs,
-		CreatedAt:       transaction.Model.CreatedAt,
+		CreatedAt:       transaction.CreatedAt,
 		Sender:          sender,
 		Receiver:        receiver,
 	}, nil
@@ -304,7 +305,8 @@ func (u *userClientAdapter) GetContacts(ctx context.Context, conditions *filter.
 
 	return &models.SearchContactsResponse{
 		Content: content,
-		Page:    page}, nil
+		Page:    page,
+	}, nil
 }
 
 func (u *userClientAdapter) GenerateTotpForContact(contact *models.Contact, period, digits uint) (string, error) {
