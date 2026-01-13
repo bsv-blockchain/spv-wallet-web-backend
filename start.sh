@@ -5,11 +5,11 @@ mkdir -p .local
 
 # Download newest version of the start.sh and docker-compose.yml
 echo ""
-echo "Downloading newest version of start.sh from bitcoin-sv/spv-wallet repository:"
-curl -o .local/start.sh https://raw.githubusercontent.com/bitcoin-sv/spv-wallet/main/start.sh
+echo "Downloading newest version of start.sh from bsv-blockchain/spv-wallet repository:"
+curl -o .local/start.sh https://raw.githubusercontent.com/bsv-blockchain/spv-wallet/main/start.sh
 echo ""
-echo "Downloading newest version of docker-compose.yml from bitcoin-sv/spv-wallet repository:"
-curl -o .local/docker-compose.yml https://raw.githubusercontent.com/bitcoin-sv/spv-wallet/main/docker-compose.yml
+echo "Downloading newest version of docker-compose.yml from bsv-blockchain/spv-wallet repository:"
+curl -o .local/docker-compose.yml https://raw.githubusercontent.com/bsv-blockchain/spv-wallet/main/docker-compose.yml
 
 # ensure that script is runnable
 chmod +x .local/start.sh
