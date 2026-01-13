@@ -272,7 +272,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_transactions.PaginatedTransactions"
+                            "$ref": "#/definitions/github_com_bsv-blockchain_spv-wallet-web-backend_domain_transactions.PaginatedTransactions"
                         }
                     }
                 }
@@ -400,7 +400,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_bitcoin-sv_spv-wallet-web-backend_domain_transactions.PaginatedTransactions": {
+        "github_com_bsv-blockchain_spv-wallet-web-backend_domain_transactions.PaginatedTransactions": {
             "type": "object",
             "properties": {
                 "count": {
@@ -415,7 +415,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_bitcoin-sv_spv-wallet-web-backend_domain_users.Balance": {
+        "github_com_bsv-blockchain_spv-wallet-web-backend_domain_users.Balance": {
             "type": "object",
             "properties": {
                 "bsv": {
@@ -561,7 +561,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance": {
-                    "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_users.Balance"
+                    "$ref": "#/definitions/github_com_bsv-blockchain_spv-wallet-web-backend_domain_users.Balance"
                 },
                 "paymail": {
                     "type": "string"
@@ -715,7 +715,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "balance": {
-                    "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_users.Balance"
+                    "$ref": "#/definitions/github_com_bsv-blockchain_spv-wallet-web-backend_domain_users.Balance"
                 },
                 "email": {
                     "type": "string"

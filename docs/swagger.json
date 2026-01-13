@@ -17,7 +17,7 @@
             },
             "type": "object"
         },
-        "github_com_bitcoin-sv_spv-wallet-web-backend_domain_transactions.PaginatedTransactions": {
+        "github_com_bsv-blockchain_spv-wallet-web-backend_domain_transactions.PaginatedTransactions": {
             "properties": {
                 "count": {
                     "type": "integer"
@@ -32,7 +32,7 @@
             },
             "type": "object"
         },
-        "github_com_bitcoin-sv_spv-wallet-web-backend_domain_users.Balance": {
+        "github_com_bsv-blockchain_spv-wallet-web-backend_domain_users.Balance": {
             "properties": {
                 "bsv": {
                     "type": "number"
@@ -177,7 +177,7 @@
         "transports_http_endpoints_api_access.SignInResponse": {
             "properties": {
                 "balance": {
-                    "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_users.Balance"
+                    "$ref": "#/definitions/github_com_bsv-blockchain_spv-wallet-web-backend_domain_users.Balance"
                 },
                 "paymail": {
                     "type": "string"
@@ -331,7 +331,7 @@
         "transports_http_endpoints_api_users.UserResponse": {
             "properties": {
                 "balance": {
-                    "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_users.Balance"
+                    "$ref": "#/definitions/github_com_bsv-blockchain_spv-wallet-web-backend_domain_users.Balance"
                 },
                 "email": {
                     "type": "string"
@@ -606,7 +606,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/github_com_bitcoin-sv_spv-wallet-web-backend_domain_transactions.PaginatedTransactions"
+                            "$ref": "#/definitions/github_com_bsv-blockchain_spv-wallet-web-backend_domain_transactions.PaginatedTransactions"
                         }
                     }
                 },
