@@ -318,6 +318,10 @@ func decryptXpriv(password, encryptedXpriv string) (string, error) {
 // splitEmail splits email to username and domain.
 func splitEmail(email string) (string, string) {
 	components := strings.Split(email, "@")
+	// Validate format: must have exactly 2 components (username@domain)
+	if len(components) != 2 {
+		return "", ""
+	}
 	username, domain := components[0], components[1]
 
 	return username, domain

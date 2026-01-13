@@ -21,10 +21,16 @@ func Encrypt(passphrase, plaintext string) (string, error) {
 	iv := make([]byte, 12)
 	_, err := rand.Read(iv)
 	if err != nil {
-		panic(err)
+		return "", err
 	}
-	b, _ := aes.NewCipher(key)
-	aesgcm, _ := cipher.NewGCM(b)
+	b, err := aes.NewCipher(key)
+	if err != nil {
+		return "", err
+	}
+	aesgcm, err := cipher.NewGCM(b)
+	if err != nil {
+		return "", err
+	}
 	data := aesgcm.Seal(nil, iv, []byte(plaintext), nil)
 	return hex.EncodeToString(salt) + "-" + hex.EncodeToString(iv) + "-" + hex.EncodeToString(data), nil
 }
@@ -32,12 +38,38 @@ func Encrypt(passphrase, plaintext string) (string, error) {
 // Decrypt decrypts the ciphertext using AES-GCM.
 func Decrypt(passphrase, ciphertext string) string {
 	arr := strings.Split(ciphertext, "-")
-	salt, _ := hex.DecodeString(arr[0])
-	iv, _ := hex.DecodeString(arr[1])
-	data, _ := hex.DecodeString(arr[2])
+	// Validate format: must have exactly 3 components (salt-iv-data)
+	if len(arr) != 3 {
+		return ""
+	}
+	salt, err := hex.DecodeString(arr[0])
+	if err != nil {
+		return ""
+	}
+	iv, err := hex.DecodeString(arr[1])
+	if err != nil {
+		return ""
+	}
+	// IV must be exactly 12 bytes for GCM
+	if len(iv) != 12 {
+		return ""
+	}
+	data, err := hex.DecodeString(arr[2])
+	if err != nil {
+		return ""
+	}
 	key, _ := deriveKey(passphrase, salt)
-	b, _ := aes.NewCipher(key)
-	aesgcm, _ := cipher.NewGCM(b)
-	data, _ = aesgcm.Open(nil, iv, data, nil)
+	b, err := aes.NewCipher(key)
+	if err != nil {
+		return ""
+	}
+	aesgcm, err := cipher.NewGCM(b)
+	if err != nil {
+		return ""
+	}
+	data, err = aesgcm.Open(nil, iv, data, nil)
+	if err != nil {
+		return ""
+	}
 	return string(data)
 }
