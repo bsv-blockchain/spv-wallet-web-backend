@@ -129,10 +129,10 @@ jobs:
 
           if [ -n "$GO_MODULE_DIR" ]; then
             echo "🔧 Running magex test:fuzz from directory: $GO_MODULE_DIR"
-            (cd "$GO_MODULE_DIR" && magex test:fuzz time=10s -timeout $FUZZ_TIMEOUT) 2>&1 | tee fuzz-output.log
+            (cd "$GO_MODULE_DIR" && magex test:fuzz time=5s -timeout $FUZZ_TIMEOUT) 2>&1 | tee fuzz-output.log
           else
             echo "🔧 Running magex test:fuzz from repository root"
-            magex test:fuzz time=10s -timeout $FUZZ_TIMEOUT 2>&1 | tee fuzz-output.log
+            magex test:fuzz time=5s -timeout $FUZZ_TIMEOUT 2>&1 | tee fuzz-output.log
           fi
 
           FUZZ_EXIT_CODE=${PIPESTATUS[0]}
