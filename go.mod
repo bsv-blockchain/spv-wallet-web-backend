@@ -115,3 +115,6 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+// CVE-2026-24051 mitigation: Force upgrade to patched version
+replace go.opentelemetry.io/otel/sdk => go.opentelemetry.io/otel/sdk v1.40.0
