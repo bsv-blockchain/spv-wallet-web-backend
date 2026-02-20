@@ -7,7 +7,7 @@ import (
 
 // CreateTransaction represents request for creating new transaction.
 type CreateTransaction struct {
-	Password  string `json:"password"`
+	Password  string `json:"password"` //nolint:gosec // G117: field name matches pattern but this is a transaction request model, not a secret leak
 	Recipient string `json:"recipient"`
 	Satoshis  uint64 `json:"satoshis"`
 }
