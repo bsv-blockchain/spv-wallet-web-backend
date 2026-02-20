@@ -5,7 +5,7 @@ import "github.com/bsv-blockchain/spv-wallet-web-backend/domain/users"
 // RegisterUser is a struct that contains user register data.
 type RegisterUser struct {
 	Email                string `json:"email"`
-	Password             string `json:"password"`
+	Password             string `json:"password"` //nolint:gosec // G117: field name matches pattern but this is a registration request model, not a secret leak
 	PasswordConfirmation string `json:"passwordConfirmation"`
 }
 

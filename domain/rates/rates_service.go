@@ -78,7 +78,7 @@ func (s *Service) fetchExchangeRate() (*float64, error) {
 		return nil, fmt.Errorf("error during creating exchange rate request: %w", err)
 	}
 
-	res, err := http.DefaultClient.Do(req)
+	res, err := http.DefaultClient.Do(req) //nolint:gosec // G704: URL is loaded from configuration, not user input
 	if err != nil {
 		return nil, fmt.Errorf("error during getting exchange rate: %w", err)
 	}

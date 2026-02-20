@@ -33,7 +33,7 @@ func FuzzUserRegistrationJSON(f *testing.F) {
 		// Define registration struct
 		type RegisterUser struct {
 			Email                string `json:"email"`
-			Password             string `json:"password"`
+			Password             string `json:"password"` //nolint:gosec // G117: fuzz test struct field, not a secret leak
 			PasswordConfirmation string `json:"passwordConfirmation"`
 		}
 
@@ -80,7 +80,7 @@ func FuzzTransactionRequestJSON(f *testing.F) {
 
 		// Define transaction struct
 		type CreateTransaction struct {
-			Password  string `json:"password"`
+			Password  string `json:"password"` //nolint:gosec // G117: fuzz test struct field, not a secret leak
 			Recipient string `json:"recipient"`
 			Satoshis  uint64 `json:"satoshis"`
 		}
