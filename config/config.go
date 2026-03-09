@@ -98,7 +98,7 @@ type Db struct {
 	Host           string
 	Port           int
 	User           string
-	Password       string //nolint:gosec // G117: field name matches pattern but is a DB config struct, not a secret leak
+	Password       string
 	Name           string
 	SslMode        string
 	MigrationsPath string
