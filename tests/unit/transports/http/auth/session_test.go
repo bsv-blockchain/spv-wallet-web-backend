@@ -1,6 +1,7 @@
 package auth_test
 
 import (
+	"context"
 	"net/http/httptest"
 	"testing"
 
@@ -70,7 +71,7 @@ func setupTest() (ctx *gin.Context) {
 	ctx, _ = gin.CreateTestContext(httptest.NewRecorder())
 	store := memstore.NewStore([]byte("secret"))
 
-	ctx.Request = httptest.NewRequest("GET", "/test", nil)
+	ctx.Request = httptest.NewRequestWithContext(context.Background(), "GET", "/test", nil)
 	sessions.Sessions("test", store)(ctx)
 
 	return ctx
