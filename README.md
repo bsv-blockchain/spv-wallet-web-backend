@@ -282,7 +282,7 @@ task test
 
 ## 🧪 Examples & Tests
 
-All unit tests and examples run via [GitHub Actions](https://github.com/bsv-blockchain/spv-wallet-web-backend/actions) and use [Go version 1.24.x](https://go.dev/doc/go1.24). View the [configuration file](.github/workflows/fortress.yml).
+All unit tests and examples run via [GitHub Actions](https://github.com/bsv-blockchain/spv-wallet-web-backend/actions) and use [Go version 1.25.x](https://go.dev/doc/go1.25). View the [configuration file](.github/workflows/fortress.yml).
 
 Run all tests (fast):
 
