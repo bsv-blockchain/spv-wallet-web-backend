@@ -65,7 +65,8 @@ func runMigration(db *sql.DB) {
 
 	m, err := migrate.NewWithDatabaseInstance(
 		"file://"+viper.GetString(config.EnvDbMigrationsPath),
-		"postgres", driver)
+		"postgres", driver,
+	)
 	if err != nil {
 		panic(err)
 	}
