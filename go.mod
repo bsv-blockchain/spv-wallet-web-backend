@@ -7,7 +7,7 @@ require (
 	github.com/brianvoe/gofakeit/v6 v6.28.0
 	github.com/bsv-blockchain/spv-wallet-go-client v1.3.0
 	github.com/bsv-blockchain/spv-wallet/models v1.0.1
-	github.com/centrifugal/centrifuge v0.39.2
+	github.com/centrifugal/centrifuge v0.39.3
 	github.com/gin-contrib/sessions v1.1.2
 	github.com/golang/mock v1.7.0-rc.1
 	github.com/libsv/go-bk v0.1.6
@@ -22,6 +22,7 @@ require (
 )
 
 require (
+	github.com/centrifugal/fdelta v0.0.3 // indirect
 	github.com/go-openapi/swag/pools v0.29.2 // indirect
 	github.com/maypok86/otter/v2 v2.3.0 // indirect
 	github.com/mrz1836/go-whatsonchain v1.3.0 // indirect
@@ -89,11 +90,10 @@ require (
 	github.com/quasoft/memstore v0.0.0-20191010062613-2bce066d2b0b // indirect
 	github.com/quic-go/qpack v0.6.0 // indirect
 	github.com/quic-go/quic-go v0.62.0 // indirect
-	github.com/redis/rueidis v1.0.77 // indirect
+	github.com/redis/rueidis v1.0.78 // indirect
 	github.com/sagikazarmark/locafero v0.12.0 // indirect
 	github.com/segmentio/asm v1.2.1 // indirect
 	github.com/segmentio/encoding v0.5.4 // indirect
-	github.com/shadowspore/fossil-delta v0.0.0-20241213113458-1d797d70cbe3 // indirect
 	github.com/spf13/afero v1.15.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
