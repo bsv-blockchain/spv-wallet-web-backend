@@ -25,8 +25,8 @@ github.com/brianvoe/gofakeit/v6 v6.28.0 h1:Xib46XXuQfmlLS2EXRuJpqcw8St6qSZz75OUo
 github.com/brianvoe/gofakeit/v6 v6.28.0/go.mod h1:Xj58BMSnFqcn/fAQeSK+/PLtC5kSb7FJIq4JyGa8vEs=
 github.com/bsv-blockchain/go-sdk v1.7.2 h1:AKJaeDOzcIqcLgEG/i5ksi6/StQsFEsGSZrIgHBRMzc=
 github.com/bsv-blockchain/go-sdk v1.7.2/go.mod h1:NtCYkU9NX/D8wzdN+9zGUtl2Rpdp+Zk5Uhyd0Aww+/c=
-github.com/bsv-blockchain/spv-wallet-go-client v1.3.0 h1:O/NcZzdjFjr3ZS2p/klnIOUIP/hjjrPt23fU1YFLn2g=
-github.com/bsv-blockchain/spv-wallet-go-client v1.3.0/go.mod h1:99/9Arhh7PV6lTYbnTgL/GzyLEFKFSb8v4nW9rgAV9M=
+github.com/bsv-blockchain/spv-wallet-go-client v1.3.1 h1:Al/Am4inRjJRAO1qJpBjekN8V1kLjLJ9lTXhgidCzOg=
+github.com/bsv-blockchain/spv-wallet-go-client v1.3.1/go.mod h1:7yFKGepTgMJrGCivmvf6lkCyfonr5057nLIiV2lLbD4=
 github.com/bsv-blockchain/spv-wallet/models v1.0.1 h1:uxUF67/g5NWyQk9e5rz6KUI/GBWCmuN1Uw3sYZrsrJw=
 github.com/bsv-blockchain/spv-wallet/models v1.0.1/go.mod h1:aSJZN3qr6gjCuivybm/3ia4IKPpnbr33GuknBIY4UmE=
 github.com/bytedance/gopkg v0.1.4 h1:oZnQwnX82KAIWb7033bEwtxvTqXcYMxDBaQxo5JJHWM=
