@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM --platform=$TARGETPLATFORM alpine:3.23
+FROM --platform=$TARGETPLATFORM alpine:3.24
 
 WORKDIR /app
 
