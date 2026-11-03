@@ -1,6 +1,6 @@
 module github.com/bsv-blockchain/spv-wallet-web-backend
 
-go 1.26.0
+go 1.26.10
 
 require (
 	github.com/avast/retry-go/v4 v4.7.0
@@ -8,7 +8,7 @@ require (
 	github.com/bsv-blockchain/spv-wallet-go-client v1.3.1
 	github.com/bsv-blockchain/spv-wallet/models v1.0.1
 	github.com/centrifugal/centrifuge v0.39.3
-	github.com/gin-contrib/sessions v1.1.2
+	github.com/gin-contrib/sessions v1.1.3
 	github.com/golang/mock v1.7.0-rc.1
 	github.com/libsv/go-bk v0.1.6
 	github.com/rs/zerolog v1.35.1
